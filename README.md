@@ -1,1 +1,1 @@
-Romano Fantacci, Benedetta Picano, “Performance Analysis of a Delay Constrained Data Offloading Scheme in an Integrated Cloud-Fog-Edge Computing System ”, IEEE TRANSACTIONS ON VEHICULAR TECHNOLOGY, VOL. 69, NO. 10, OCTOBER 2020.
+1. Romano Fantacci, Benedetta Picano, “Performance Analysis of a Delay Constrained Data Offloading Scheme in an Integrated Cloud-Fog-Edge Computing System ”, IEEE TRANSACTIONS ON VEHICULAR TECHNOLOGY, VOL. 69, NO. 10, OCTOBER 2020.

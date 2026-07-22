@@ -1,0 +1,104 @@
+simulation parameters are infeasible. the problem was deadline 5GHz tasks can be processsed by 15GHz CPU in 200ms
+
+answer to question two:
+
+some parameters MITS did not specified. instead authors of MITS said  they used parameters of two other articles (article one, article two) for MITS simulation. I also added my opinion option. in this option I tried to address most likely and another possibility of values for parameters. this option is arbitrary and can be used only when others (article one, article two) values fails.
+
+article two parameters is from the paper with doi: 10.1109/TVT.2022.3196544
+
+article one parameters is from the paper with doi: 10.1109/TVT.2018.2881191
+
+but before I told you the parameters of other articles, there are some reminder about main article I have to mention.
+
+* article uses OFDMA for transmission
+
+* article calculate uplink transmittion (task offloading) and download transmission (send back output of processed tasks)
+
+* uplink and down link channels are the same.
+
+*if there is a parameter value that main article specified, that value is only possible value. thus the parameters in main article are important.
+
+* in all options (articleone, article two, my optinon), vehicles battery are large enough to process.
+
+* in all articles, the number of sub-bands for OFDMA channels set equal to the number of users per cell.
+
+*in the main article (mits) authors used 0.5 for both lambdas in objective function.
+
+article one:
+for base station spacing we have options:
+1. 237m
+2. 209m
+3. 112m
+
+channel gain is :
+generated using a distance-dependent path-loss model given as 140.7+36.7 * log_{10} ^ d_{km}, d is the Euclidean distance
+and log-normal shadowing is 8dB
+
+users transmission power (tx) is 20dBm
+
+user bandwidth is: 20 MHz
+
+noise is -100dBm
+
+chip energy coeffient (k) is 5 * 10^-27
+
+output file data size is: 420 KB
+
+the users are dropped in random locations, with uniform distribution, within the coverage area of the network at the beginning
+of the simulations 
+
+number of sub-bands in OFDMA sets to number of users per cells.
+
+second article:
+range of RSUs: 250m
+
+pathloss is 128.9+37.6 * (log_{10} ^{d_{km}}, d is Euclidean distance in kilimeter and shadowing effect is log-normal with 8dB and fast fading is Rayleigh fading distribution
+
+tx power of user is: 23 dBm
+
+noise is: -114 dBm
+
+chip energy coeffient (k) is: 10^-25
+
+number of sub-bands in OFDMA sets to number of users per cells.
+
+my opinion:
+user transmission rate is: 8 mbps
+
+range of RSUs is 100m or 200m or 250m
+
+noise can be: 1.5 * 10^-8 W
+
+user tx power: 2 +0.2 or 2-0.2 W
+
+channel gain: 144 + 14.4 or 144 - 14.4 dB
+
+discount factor for distance can be: 0.9 , 2
+
+time slot could be: 20sec, 10sec or 5sec
+
+note that in any of above options (article one, article two, my option) if there was a parameters value that did not mentioned in any other options you should treat that value as your only possible value and can be used in any other options.
+
+for the sake of understanding first use article one and after that article two parameters separately. then test each article individually. then you can use combinations of parameters from article one and article two. if it did not worked you can then use parameters value in my opinion.
+
+after failing at all of the values you can use common parameters of your choose but after testing the parameters i gave to you. if you used any other parameters please write in your report file.
+-----------------------------------------------------------------------
+answer to question three:
+
+In addition at the beginning, the users are dropped in random locations, with uniform distribution, within the coverage area of the network.
+
+the article (MITS) said all RSUs are randomly deployed and all RSUs are connected to the Base station. but in the file tmccode.py there is hard coded RSUs ID. please consider this in your code. I think it is more likely authors did not used hard coded RSUs. instead they really deployed RSUs randomly or they process traces of vehicles and deployed RSUs in their possible route.
+
+the coverage area of RSUs do not overlap. so user can only connect to one RSU in each time slot.
+
+also, I provide you with additional information:
+
+file tmccode.rar i gave to you provides the simulation area setup (i.e., distribution of MECs) and the mobility prediction using Markov chain in the file tmccode.cpp witch is main code file.
+
+please ignore files requests.txt, result.txt and irreverent other files or folders. you job for file tmccode.rar is only understand tmccode.py file. the file tmccode.cpp is same as tmccode.py but in c++ language.
+
+in main article (mits) users are vehicles witch authors used "cabspottingdata" file. but in tmccoded.rar users considered PDA and pedestrians. Ap_location.csv and wtd.csv and request.txt file are only for your understanding of the main code tmccode.py.  in real implementation, after undrestanding the tmccode.py file, use "cabspottingdata" file as your source file for users mobility. 
+
+please note that file tmccode.rar only provide information about distribution of MECs, RSUs and the users mobility prediction using Markov chain algorithm. it just for your understanding about simulation environment. for information about users (vehicles) please use ./cabspottingdata/ instead of wtd.csv file. for example in tmccode.py file authors used markov chain to predict users mobility from file wtd.csv but instead of wtd.csv you use files in ./cabspottingdata/ to predict. each txt file in ./cabspottingdata/ represent one user (vehicle). if there are any questions ask.
+
+also, in section VI. PERFORMANCE EVALUATION in article, and subsection E. Results and Discussion authors considered different scenarios. in items impact of number of tasks , Impact of Number of Vehicles and Impact of Number of RSUs authors describe impact of number of tasks, number of vehicles and RSUs by varying them from minimum number to maximum number. so if you read this items you will understand for each item (we call scenarios) what you should do. please write your job in each scenario in your documentation. please only consider these scenarios
